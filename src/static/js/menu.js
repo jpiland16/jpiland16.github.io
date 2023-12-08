@@ -12,7 +12,7 @@ const TEST_MENU_STRING = `
 const MENU_STRING = `
  - Home$>/
  - Resume$>/resume/
- + Experience$>/experience/
+ - Experience$>/experience/
    - Robotics / ROS$>/experience/ece383-project/
  - Music$>/music/
  - Photography$>/photography/
