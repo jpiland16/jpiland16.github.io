@@ -74,9 +74,59 @@
             <div id="content">
                 <h1>ECE 383 Final Project, Fall 2023</h1>
                 <h4>Mayari Merchant, Jonathan Piland, Reyna Vrbensky, Ethan Yu</h4>
-                <iframe id="yt_video" width="512" height="282" allowfullscreen
-                    src="https://www.youtube.com/embed/lblcCC5FsEg?autoplay=1&mute=1" allow='autoplay'>
-                </iframe> 
+                <div id="left_pane">
+                    <iframe id="yt_video" width="512" height="282" allowfullscreen
+                        src="https://www.youtube.com/embed/lblcCC5FsEg?autoplay=1&mute=1" allow='autoplay'>
+                    </iframe> 
+                </div>
+                <div id="right_pane">
+                    <h2 style="text-align: center">Automated Connect4 through precise placement and computer vision</h2>
+                    Project achievements:
+                    <ul>
+                        <li>Accurate placement of token in board using feedback and inverse transformations</li>
+                        <li>CV detection of user move to inform automatic robot state update</li>
+                        <li>Unbeatable robot using Connect4 solver by <a href="https://github.com/PascalPons/connect4" target="_blank">PascalPons</a></li>
+                    </ul>
+                </div>
+                <div id="main_text">
+                    <h3>Code availability</h3>
+                    Code is available on <a href="https://gitlab.oit.duke.edu/jcp72/ece383-final-project" target="_blank">GitLab</a> and <a href="https://github.com/jpiland16/ece383-final-project" target="_blank">GitHub</a>.
+                    <h3>Summary of accomplishments</h3>
+                    <p>
+                        The UR5e is a commonly used robotic arm due to its versatility for pick-and-place operations, and it is also used for
+                        medical applications such as the precise positioning of <a href="https://iopscience.iop.org/article/10.1088/1741-2552/ad0add" target="_blank" >transcranial magnetic stimulation</a> devices and
+                        (more recently) <a href="https://ieeexplore.ieee.org/abstract/document/9561924" target="_blank" >ultrasound image acquisition</a>. Essential to the success of applications of this robot
+                        are tests conducted <i>in silico</i> (in simulation) to ensure the safety of the users of the robot. Despite this
+                        requirement, however, easy-to-implement models of the robotic arm with an end effector attached are extremely scarce,
+                        and documentation on modifying the simulation environment is incomplete.
+                    </p>
+                    <p>
+                        In this project, we <a href="https://tinyurl.com/ur5e-robotiq-help" target="_blank">documented</a> the exact steps
+                        necessary to create a modified simulation environment and add the end effector to the robot. In addition, an <a href="https://github.com/jpiland16/ece383-final-project/blob/master/install.sh" target="_blank" >installation
+                        script</a> was developed such that individuals could easily begin work on their section of the project without having to modify system files. Relevant 
+                        configuration files that required modification were duplicated from their previously installed locations in each package, and individually modified after making a copy,
+                        ensuring that the original files were preserved and reducing the complexity to a two-command installation process.
+                    </p>
+                    <p>
+                        Precise placement of the token above the board was achieved using a feedback loop where the position of the model
+                        was obtained from the simulation environment, the inverse transformation from the token to the end effector calculated, 
+                        and this transformation applied to the desired position to obtain the next goal position. A simulated camera was used
+                        to create an image of the board, and processed using computer vision to determine the move entered by the user when 
+                        playing against the robot. Finally, the state of the board was entered into the solved version of <a href="https://github.com/PascalPons/connect4" target="_blank">Connect4 implemented by
+                        PascalPons</a>.
+                    </p>
+                    <p>
+                        By combining precise placement of the token with computer vision and a fully solved version of the game,
+                        we developed an opponent that is unbeatable (as long as it is allowed to play first).
+                    </p>
+                    <h3>References/resources used</h3>
+                    <ul>
+                        <li><a href="https://github.com/Danfoa/robotiq_2finger_grippers" target="_blank">Danfoa: 2-Finger Grippers</a>: STL/Xacro files for hand</li>
+                        <li><a href="https://github.com/PascalPons/connect4">PascalPons: connect4</a>: Connect4 solution</li>
+                        <li><a href="https://github.com/pal-robotics/gazebo_ros_link_attacher">PAL Robotics: ROS Link Attacher</a>: Temporary attachment of objects to hand</li>
+                    </ul>
+                </div>
+        
             </div>
         </div>
     </div>
