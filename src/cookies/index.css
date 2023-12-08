@@ -1,0 +1,25 @@
+#cookies-table * {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px 20px;
+    text-align: left;
+    transition: border-color var(--animation-speed);
+}
+
+html.dark-theme #cookies-table * {
+    border: 1px solid white;
+    transition: border-color var(--animation-speed);
+}
+
+#cookies-table td {
+    font-family: monospace;
+}
+
+#cookies-table table {
+    margin: auto;
+    width: 60%;
+}
+
+#cookies-table td {
+    width: 50%;
+}

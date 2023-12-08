@@ -1,3 +1,12 @@
 {
-    "liveServer.settings.root": "/build"
+    "liveServer.settings.root": "/build",
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "src/.*",
+                "isAsync": true,
+                "cmd": "python3 run_build.py"
+            }
+        ]
+    }
 }
