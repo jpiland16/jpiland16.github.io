@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en-us" class="dark-theme">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <!-- TARGET FOR NON-TEMPLATE CSS INSERTION -->
+    <script src="/static/js/index.js"></script>
+    <script src="/static/js/menu.js"></script>
+    <!-- TARGET FOR NON-TEMPLATE JS INSERTION -->
+    <title>
+        Jonathan Piland | Engineer & Full Stack Developer
+    </title>
+</head>
+
+<body onload="onLoad()">
+    <div id="overlay-menu-container" onclick="hideMenu()">
+        <div id="menu-close-icon">
+            <img src="/static/img/svg/menu_close_squared.svg" width="36px" title="Close menu">
+        </div> 
+        <div id="overlay-menu" onclick="event.stopPropagation()">
+            <div id="menu-content"></div>
+            <div id="menu-info">website design &copy; 2022 Jonathan Piland</div>
+        </div>
+    </div>
+    <table class="top-bar">
+        <tr>
+            <td class="top-bar-button" title="Menu" onclick="showMenu()">
+                <div>
+                    <img title="Menu" src="/static/img/svg/menu.svg" height="36px" alt="menu"/>
+                </div>
+            </td>
+            <td onclick="window.location.href = '/'">JONATHAN PILAND</td>
+            <td class="top-bar-button" onclick="switchLightDarkTheme()"  title="Invert page colors">
+                <div>
+                    <img title="Invert page colors" src="/static/img/svg/light_dark_theme.svg" height="36px" alt="invert color"/>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div id="main">
+        <div id="top-menu">
+            <table>
+                <tr>
+                    <!-- This unfortunate looking formatting prevents extra space 
+                         after the last letter of the menu item when using custom
+                         letter spacing. -->
+                    <td onclick="window.location.href = '/experience/'">
+                        <div class="menu-link">
+                            <span>EXPERIENC</span>E
+                        </div>
+                    </td>
+                    <td onclick="window.location.href = '/music/'">
+                        <div class="menu-link">
+                            <span>MUSI</span>C
+                        </div>
+                    </td>
+                    <td onclick="window.location.href = '/photography/'">
+                        <div class="menu-link">
+                            <span>PHOTOGRAPH</span>Y
+                        </div>
+                    </td>
+                    <td onclick="window.location.href = '/contact/'">
+                        <div class="menu-link">
+                            <span>CONTAC</span>T
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="content-placeholder">
+            <!-- TARGET FOR NON-TEMPLATE HTML INSERTION -->
+        </div>
+    </div>
+</body>
+
+</html>
