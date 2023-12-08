@@ -1,0 +1,439 @@
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/inter/v11/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuOKfAZ9hiA.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.top-bar {
+    font-weight: 300;
+}
+
+.menu-link {
+    font-weight: 300;
+}
+
+:root {
+    --animation-speed: 0.3s;
+    --modal-animation-speed: 0.15s;
+    --menu-underline-width: 1px;
+}
+
+html.animatable {
+    transition: 
+        background-color var(--animation-speed), 
+        color var(--animation-speed);
+}
+
+html.animatable td.top-bar-button img {
+    transition: filter var(--animation-speed);
+}
+
+html.animatable img.monochrome-svg {
+    transition: filter var(--animation-speed);
+}
+
+/* LIGHT AND DARK THEMES */
+/* #region */
+
+html.dark-theme {
+    background-color: black;
+    color: white;
+}
+
+html.dark-theme table.top-bar, 
+html.dark-theme table.top-bar tr, 
+html.dark-theme table.top-bar tr td {
+    border: 2px solid white;
+}
+
+html.animatable table.top-bar, 
+html.animatable table.top-bar tr, 
+html.animatable table.top-bar tr td {
+    transition: border-color var(--animation-speed);
+}
+
+html.dark-theme div#content-placeholder {
+    border-color: white;
+}
+
+html.light-theme {
+    background-color: white;
+    color: black;
+}
+
+html.light-theme table.top-bar, 
+html.light-theme table.top-bar tr, 
+html.light-theme table.top-bar tr td {
+    border: 2px solid black;
+}
+
+html.light-theme div#content-placeholder {
+    border-color: black;
+}
+
+html.dark-theme td.top-bar-button img {
+    filter: invert(1);
+}
+
+html.dark-theme img.monochrome-svg {
+    filter: invert(1);
+}
+
+/* menu color scheme */
+
+html.light-theme .menu-link {
+    border-bottom: var(--menu-underline-width) solid white;
+}
+
+html.light-theme td:hover .menu-link {
+    border-bottom: var(--menu-underline-width) solid black;
+}
+
+html.dark-theme .menu-link {
+    border-bottom: var(--menu-underline-width) solid black;
+}
+
+html.dark-theme td:hover .menu-link {
+    border-bottom: var(--menu-underline-width) solid white;
+}
+
+/* overlay menu theme */
+
+html.light-theme #overlay-menu {
+    background-color: #c0c0c0f0;
+    border-right: 2px solid black;
+}
+
+html.light-theme .overlay-menu-item, html.light-theme .menu-expander  {
+    background-color: white;
+    border: 2px solid black;
+}
+
+html.dark-theme #overlay-menu {
+    background-color: #202020f0;
+    border-right: 2px solid white;
+}
+
+html.dark-theme .overlay-menu-item, html.dark-theme .menu-expander {
+    background-color: #444;
+    border: 2px solid white;
+}
+
+html.dark-theme #menu-close-icon {
+    background-color: black;
+}
+
+html.dark-theme #menu-close-icon img {
+    filter: invert(1)
+}
+
+html.light-theme a:visited {
+    color: rgb(166, 0, 184);
+}
+
+html.dark-theme a {
+    color: rgb(42, 173, 255);
+}
+
+html.dark-theme a:visited {
+    color: rgb(212, 36, 239);
+}
+
+html.light-theme code {
+    background-color: #ccc;
+}
+
+html.dark-theme code {
+    background-color: #444;
+}
+
+html.animatable code {
+    transition: background-color var(--animation-speed);
+}
+
+html.animatable a {
+    transition: color var(--animation-speed);
+}
+
+/* END COLORS */
+/* #endregion */
+
+/* POSSIBLE TOP MENU FOR LARGE SCREENS */ 
+/* #region */
+
+#content-placeholder {
+    height: calc(100% - 50px);
+}
+
+@media only screen and (max-width: 600px) {
+
+    /* If the screen is narrow, then hide the top menu and increase 
+       the size of the content accordingly. */
+
+    #content-placeholder {
+        padding-top: 10px;
+        height: calc(100% - 20px);
+    }
+
+    #top-menu {
+        display: none;
+    }
+
+}
+
+#top-menu {
+    height: 40px;
+}
+
+#top-menu table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#top-menu td {
+    padding: 0px;
+    /* width: calc(100% / 4); */
+    text-align: center;
+    cursor: pointer;
+}
+
+.menu-link {
+    font-family: Inter, sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    height: 32px; 
+    text-align: center;
+    line-height: 40px;
+}
+
+.menu-link {
+    transition: border-color var(--animation-speed);
+}
+
+.menu-link span {
+    letter-spacing: 2px;
+}
+
+/* END TOP MENU */
+/* #endregion */
+
+html, body {
+    margin: 0px;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 220px) {
+
+    /* If the screen is EXTREMELY narrow, then allow x-scroll */
+
+    html {
+        overflow-x: scroll;
+    }
+
+}
+
+html {
+    padding: 10px;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    height: calc(100% - 20px);
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    min-width: 200px;
+    height: 100%;
+}
+
+html.animatable body {
+    transition: opacity calc(var(--animation-speed) * 3) ease-out;
+}
+
+table.top-bar, table.top-bar tr, table.top-bar tr td {
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+    letter-spacing: 4px;
+    font-size: calc(min(max((100vw - 138px) / 15.4, 5.32px), 20px));
+}
+
+table.top-bar {
+    width: 100%;
+    font-family: Inter, sans-serif;
+}
+
+td.top-bar-button {
+    width: 36px;
+    cursor: pointer;
+}
+
+table.top-bar tr td:not(.top-bar-button) {
+    cursor: pointer;
+}
+
+td.top-bar-button div {
+    width: 36px;
+    height: 36px;
+}
+
+div#main {
+    border-width: 0px 2px 2px 2px;
+    border-style: solid;
+    height: calc(100% - 62px);
+}
+
+div#content-placeholder {
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow-y: auto;
+}
+
+td.top-bar-button img {
+    /* Style the text if the button image doesn't load */
+    font-size: 8px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: normal;
+}
+
+/* OVERLAY MENU */
+#overlay-menu-container {
+    opacity: 0;
+    display: none;
+    width: max(calc(100% - 22px), 198px);
+    height: calc(100% - 81.5px);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 70px 10px 11.5px 11.9px;
+    z-index: 1;
+}
+
+html.animatable #overlay-menu-container {
+    transition: opacity var(--modal-animation-speed);
+}
+
+@media only screen and (min-width: 600px) {
+
+    /* If the screen is wide, don't let the menu take up the whole screen. */
+
+    #overlay-menu-container {
+        width: 490px;
+        padding: 70px calc(100% - 502px) 11.5px 12px
+    }
+
+}
+
+#overlay-menu {
+    height: 100%;
+}
+
+#menu-content {
+    height: calc(100% - 44px);
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#menu-info {
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    text-align: center;
+}
+
+#menu-close-icon {
+    background-color: white;
+    position: absolute;
+    height: 36px;
+    top: 22px;
+    left: 22px;
+}
+
+.overlay-menu-item:hover, .menu-expander:hover {
+    opacity: 0.78;
+}
+
+.overlay-menu-item {
+    height: 20px;
+    line-height: 20px;
+    margin: 0px 0px 10px 0px;
+    width: calc(100% - 24px);
+    padding: 10px;
+    transition: opacity 0.05s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.overlay-menu-item.expansion-head {
+    width: calc(100% - 78px);
+    float: left;
+}
+
+.menu-expander {
+    height: 20px;
+    line-height: 20px;
+    margin: 0px 0px 10px 10px;
+    width: 20px;
+    padding: 10px;
+    transition: opacity 0.05s;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+}
+
+.menu-expander+div.expandable {
+    overflow: hidden;
+    transition: height 0.2s, opacity 0.2s;
+    padding-left: 20px;
+    height: 0px;
+    opacity: 0;
+}
+
+#content {
+    max-width: 1000px;
+    padding: 0px calc(50% - 500px);
+}
+
+code {
+    display: inline-block;
+    padding: 1px 3px;
+    border-radius: 3px;
+}
+
+html.unvisited body {
+    opacity: 0;
+}
+
+/* GENERAL STYLING */
+
+div.fancy-image {
+    display: inline-block;
+    border: 2px solid black;
+    margin: 0px 0px 10px 10px;
+}
+
+html.animatable div.fancy-image {
+    transition: border-color var(--animation-speed);
+}
+
+html.dark-theme div.fancy-image {
+    border-color: white;
+}
+
+div.fancy-image img {
+    width: 100%;
+    margin: 10px 0px -18px -10px; /* top right bottom left */
+}
